@@ -1,0 +1,23 @@
+[
+
+    {
+        "title": "Can I compare modded items?",
+        "ans": "As of now, the way the data is retrieved it is not possible to compare modded items... But in the future I will do something about it :)."
+    },
+
+    {
+        "title": "How many times can I compare per day?",
+        "ans": "256, if it's too low, I will increase it accordingly."
+    },
+
+    {
+        "title": "Why do some items not work/cause errors?",
+        "ans": "It most definetely is because of the item not being posted on the pz wiki, or the item's description is horrible or the item has a different name that it's actuall name (e.g. Military Bulletproof Vest -> Bulletproof Vest)"
+    },
+
+    {
+        "title": "Some items have valid descriptions but they still cause errors, why?",
+        "ans": "Because of some inconsistencies between how items are named, you should go to pz wiki search the item(s) your looking for and exactly write down it's name from the link (e.g Mac_and_Cheese instead of Mac and Cheese)"
+    }
+
+]

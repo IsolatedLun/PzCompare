@@ -1,0 +1,185 @@
+/* Global */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url(./css/home.css);
+@import url(./css/utils.css);
+@import url(./css/faq.css);
+@import url(./css/list.css);
+@import url(./css/updates.css);
+@import url(./css/modal.css);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+    font-size: var(--fs-400);
+    font-weight: normal;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+    background-color: var(--clr-primary);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+ul {
+    list-style: none;
+}
+
+:root {
+    --clr-primary: hsl(233, 18%, 10%);
+    --clr-seconday: hsl(212, 88%, 46%);
+
+    --bg-muted: rgba(0, 0, 0, 0.5);
+
+    --clr-muted: rgba(255, 255, 255, 0.5);
+
+    --pct-primary: hsla(118, 100%, 40%, 0.16);
+    --pct-secondary: hsla(118, 100%, 40%, 1);
+
+    --err-primary: hsla(0, 100%, 55%, 1);
+    --err-secondary: hsla(0, 100%, 55%, 0.65);
+
+    --fs-400: 1rem;
+    --fs-450: 1.25rem;
+}
+
+/* Navbars */
+.primary-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-block: 0.75rem;
+}
+
+.primary-nav .nav-btns {
+    display: flex;
+    gap: 0.75em;
+    position: absolute;
+    right: 2%;
+}
+
+/* Sidenav */
+.sidenav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0.5em;
+    background-color: var(--bg-muted);
+    z-index: 999;
+    transform: translateX(256px);
+    transition: transform 200ms ease-in-out;
+}
+
+.sidenav.active {
+    transform: translateX(0px);
+}
+
+.sidenav .sidenav-close-btn {
+    width: 100%;
+    margin-left: auto;
+}
+
+.sidenav .options {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    margin-block: 1em;
+}
+
+.sidenav .options .option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidenav .opt-label {
+    font-size: var(--fs-450);
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+/* Containers */
+.main-container {
+    display: grid;
+    margin-inline: 1em;
+}
+
+/* Footer */
+footer {
+    padding: 0.25em;
+    background-color: black;
+    margin-top: auto;
+}
+
+footer .links {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    text-align: center;
+    padding: 0.45em;
+}
+
+footer .links-title {
+    font-size: var(--fs-400);
+    font-weight: bold;
+    margin: 0.25em;
+    text-transform: uppercase;
+    color: var(--clr-seconday);
+}
+
+footer .links li {
+    font-size: calc(var(--fs-400) * 0.85);
+    margin-block: 0.2em;
+    text-transform: capitalize;
+    color: var(--clr-muted);
+}
+
+footer .links li a:hover {
+    color: white;
+}
+
+footer address {
+    font-size: calc(var(--fs-400) * 0.8);
+    color: var(--clr-muted);
+    padding: 0.5em;
+}
+
+/* Media Queries */
+@media(max-width: 768px) {
+    /* Global */
+    :root {
+        --fs-400: 0.85rem;
+        --fs-450: 1rem;
+    }
+    
+    /* Footer */
+    footer .links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .link-part {
+        margin-block: 0.65em;
+    }
+}
