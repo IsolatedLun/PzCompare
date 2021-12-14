@@ -34,8 +34,6 @@ INSTALLED_APPS = [
 # Custom Changes
 ALLOWED_HOSTS = ['pz-compare.herokuapp.com', '127.0.0.1:8000', 'localhost']
 
-django_heroku.settings(locals())
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 
@@ -44,10 +42,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-MIDDLEWARE_CLASSES = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-]
 
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
@@ -62,7 +56,6 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -71,6 +64,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+django_heroku.settings(locals())
 
 ROOT_URLCONF = 'pzApi.urls'
 
