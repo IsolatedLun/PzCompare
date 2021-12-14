@@ -35,7 +35,7 @@ INSTALLED_APPS = [
 ALLOWED_HOSTS = ['pz-compare.herokuapp.com']
 
 WHITENOISE_MIMETYPES = {
-    '.js': 'text/javascript',
+    '.js': 'application/javascript',
     '.css': 'text/css'
 }
 
