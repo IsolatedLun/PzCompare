@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { GameObjects } from "../../interfaces/interfaces";
 import { handleBar, showPopup } from "../../utils/funcs";
 import { getObjs } from "../../utils/objApi";
 
-interface ObjState {
-    data: {};
-}
+const initialState: GameObjects = {
+    "items": [],
+    "diffs": [],
 
-const initialState: ObjState = {
-    data: {}
+    "status": "idle"
 }
 
 export const fetchObjs = createAsyncThunk(
@@ -41,12 +41,17 @@ export const objSlice = createSlice({
 
         builder.addCase(fetchObjs.fulfilled, (state, action) => {
             handleBar(true);
-            state.data = action.payload;
+
+            state.items = [action.payload[0], action.payload[1]]
+            state["diffs"] = action.payload["diffs"];
+            state['status'] = 'fulfilled';
         }),
 
         builder.addCase(fetchObjs.rejected, (state, action: any) => {
             handleBar(true);
             showPopup(action.payload);
+            
+            state['status'] = 'rejected';
         })
     }
 });

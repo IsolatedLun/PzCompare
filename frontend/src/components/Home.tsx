@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { ObjInpts } from '../interfaces/interfaces';
 import Objects from '../components/Objects';
+import { GameObjects } from '../interfaces/interfaces';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { fetchObjs } from '../features/objs/objSlice';
 import items from '../components/layout/json/items.json'
@@ -14,8 +15,8 @@ const Home = () => {
       });
 
       const dispatch = useAppDispatch();
-      const data: any = useAppSelector(state => state.objs['data']);
-      const showAll = useAppSelector(state => state.options.showAll)
+      const data: GameObjects = useAppSelector(state => state.objs);
+      const showAll: boolean = useAppSelector(state => state.options.showAll)
 
       const [canClick, setClick] = useState<boolean>(false)
     
@@ -30,9 +31,9 @@ const Home = () => {
           setClick(false);
       };
     
-      const handleBtn = (e: any) => {
+      const handleBtn = (e: React.MouseEvent) => {
         e.preventDefault();
-        const action: string = e.target.getAttribute('data-action')
+        const action: string = (e.target as HTMLButtonElement).getAttribute('data-action')!
     
         if(action === 'compare') {
           dispatch(fetchObjs({ 'objs': [searchObjs.objA, searchObjs.objB], 
@@ -46,16 +47,16 @@ const Home = () => {
 
         <div className="add-part">
             <input type="text" id='obj-inpt-1' name='objA' list='obj-list'
-            onInput={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)} />
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)} />
 
             <button className="fa btn add-btn round" 
-            aria-label="Add Object" disabled={canClick ? false : true} onClick={(e) => handleBtn(e)} 
+            aria-label="Add Object" disabled={canClick ? false : true} onClick={(e: React.MouseEvent) => handleBtn(e)} 
             data-action='compare'>
               &#xf067;
             </button>
 
             <input type="text" id='obj-inpt-2' name='objB' list='obj-list'
-            onInput={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)} />
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)} />
 
             <datalist id='obj-list'>
               {
@@ -66,12 +67,7 @@ const Home = () => {
             </datalist>
         </div>
         
-            {
-              data['diffs']
-              ?
-              <Objects data={data} showAll={showAll} />
-              : null
-            }
+        <Objects data={data} showAll={showAll} />
 
     <Modal />
 

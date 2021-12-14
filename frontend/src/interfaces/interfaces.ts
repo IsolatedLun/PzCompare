@@ -1,5 +1,9 @@
-interface Objects {
-    objs: [object, object]
+
+interface GameObjects {
+    "items": object[]
+    
+    "diffs": []
+    "status": "rejected" | "fulfilled" | "idle"
 }
 
 interface ObjInpts {
@@ -7,4 +11,4 @@ interface ObjInpts {
     objB: string
 }
 
-export type { Objects, ObjInpts };
+export type { GameObjects, ObjInpts };

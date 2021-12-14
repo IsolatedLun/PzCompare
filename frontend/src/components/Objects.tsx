@@ -1,19 +1,28 @@
 import { useAppSelector } from '../hooks';
+import { GameObjects } from '../interfaces/interfaces';
 
 import Item from './parts/Item';
 
-const Objects = ({ data, showAll } : {data: any, showAll: boolean}) => {
+const Objects = ({ data, showAll } : {data: GameObjects, showAll: boolean}) => {
     const showFilter = useAppSelector(state => state.options.isFilter);
 
     return(
         <div className='objects' id='objects'>
-            <Item obj={data['0']} diff={data['diffs']['0']} 
-            showAll={showAll}
-            isFilter={showFilter} />
+            
+            {
 
-            <Item obj={data['1']} diff={data['diffs']['1']} 
-            showAll={showAll}
-            isFilter={showFilter} />
+                data.status === 'fulfilled' 
+                ?
+
+                data.items.map((item: any, idx: number) => (
+                    <Item obj={item} diff={data.diffs[idx]} 
+                        showAll={showAll} isFilter={showFilter} />
+                )) 
+
+                : null
+
+            }
+            
         </div>
     )
 }

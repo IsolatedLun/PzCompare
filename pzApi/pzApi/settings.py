@@ -35,6 +35,8 @@ INSTALLED_APPS = [
 # Custom Changes
 CORS_ALLOW_ALL_ORIGINS = True
 
+ALLOWED_HOSTS = ["localhost", "192.168.1.72"]
+
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',
