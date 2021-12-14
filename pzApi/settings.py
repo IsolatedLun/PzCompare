@@ -34,6 +34,11 @@ INSTALLED_APPS = [
 # Custom Changes
 ALLOWED_HOSTS = ['pz-compare.herokuapp.com']
 
+WHITENOISE_MIMETYPES = {
+    '.js': 'text/javascript',
+    '.css': 'text/css'
+}
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
