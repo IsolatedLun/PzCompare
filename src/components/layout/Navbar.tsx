@@ -1,7 +1,7 @@
 import React from 'react';
-import { toggleFilter, toggleShowAll } from '../../features/options/optionSlice';
-import { useAppDispatch } from '../../hooks';
-import { toggleEl } from '../../utils/funcs';
+import { toggleFilter, toggleShowAll } from '../../features/options/optionSlice.js';
+import { useAppDispatch } from '../../hooks.js';
+import { toggleEl } from '../../utils/funcs.js';
 
 const Navbar = () => {
     const dispatch = useAppDispatch();

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { addFilter, removeFilter } from '../../features/options/optionSlice';
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { toggleEl } from '../../utils/funcs';
+import { addFilter, removeFilter } from '../../features/options/optionSlice.js';
+import { useAppDispatch, useAppSelector } from '../../hooks.js';
+import { toggleEl } from '../../utils/funcs.js';
 
 const Modal = () => {
     const filters = useAppSelector(state => state.options.filters);

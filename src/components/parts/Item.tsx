@@ -1,5 +1,5 @@
-import { ROOT_URL, STATS } from '../../constants/consts';
-import { useAppSelector } from '../../hooks';
+import { ROOT_URL, STATS } from '../../constants/consts.js';
+import { useAppSelector } from '../../hooks.js';
 
 const Item = ({ obj, diff, showAll=false, isFilter } :
      { obj: any, diff:any, showAll: boolean, isFilter: boolean }) => {
