@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import { ObjInpts } from '../interfaces/interfaces';
-import Objects from '../components/Objects';
+import Objects from './Objects';
 import { GameObjects } from '../interfaces/interfaces';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { fetchObjs } from '../features/objs/objSlice';
-import items from '../components/layout/json/items.json'
+import items from './layout/json/items.json'
 import Modal from './layout/Modal';
 
 const Home = () => {
