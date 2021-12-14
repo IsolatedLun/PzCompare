@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 
 import Home from './components/Home';
 import Faqs from './components/layout/static/Faqs';
@@ -7,6 +8,9 @@ import Navbar from './components/layout/Navbar';
 import Updates from './components/layout/static/Updates';
 
 function App() {
+
+  axios.defaults.xsrfCookieName = 'csrftoken';
+  axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
   return (
     <div className='body'>
