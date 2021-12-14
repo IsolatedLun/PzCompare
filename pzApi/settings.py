@@ -35,17 +35,15 @@ INSTALLED_APPS = [
 ALLOWED_HOSTS = ['pz-compare.herokuapp.com']
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_URL = '/static/'
 
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build/assets')
+    os.path.join(BASE_DIR, 'dist/assets')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:3000',
-)
+CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
