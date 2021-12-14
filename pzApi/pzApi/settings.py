@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jmox_+cqdckx-r_@iaq9ia%@1&^f9tctc66zm@y4epqb3(4dz9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Application definition
 
@@ -32,7 +32,7 @@ INSTALLED_APPS = [
 ]
 
 # Custom Changes
-ALLOWED_HOSTS = ['pz-compare.herokuapp.com', '127.0.0.1:8000', 'localhost']
+ALLOWED_HOSTS = ['pz-compare.herokuapp.com']
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
@@ -64,8 +64,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-django_heroku.settings(locals())
 
 ROOT_URLCONF = 'pzApi.urls'
 
@@ -135,3 +133,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())
