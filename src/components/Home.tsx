@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-import { ObjInpts } from '../interfaces/interfaces.js';
-import Objects from './Objects.js';
-import { GameObjects } from '../interfaces/interfaces.js';
-import { useAppDispatch, useAppSelector } from '../hooks.js';
-import { fetchObjs } from '../features/objs/objSlice.js';
+import { ObjInpts } from '../interfaces/interfaces';
+import Objects from './Objects';
+import { GameObjects } from '../interfaces/interfaces';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { fetchObjs } from '../features/objs/objSlice';
 import items from './layout/json/items.json'
-import Modal from './layout/Modal.js';
+import Modal from './layout/Modal';
 
 const Home = () => {
     const [searchObjs, setObjsSearch] = useState<ObjInpts>({

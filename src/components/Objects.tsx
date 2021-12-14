@@ -1,7 +1,7 @@
-import { useAppSelector } from '../hooks.js';
-import { GameObjects } from '../interfaces/interfaces.js';
+import { useAppSelector } from '../hooks';
+import { GameObjects } from '../interfaces/interfaces';
 
-import Item from './parts/Item.js';
+import Item from './parts/Item';
 
 const Objects = ({ data, showAll } : {data: GameObjects, showAll: boolean}) => {
     const showFilter = useAppSelector(state => state.options.isFilter);

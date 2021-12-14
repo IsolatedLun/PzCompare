@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { handleBar, showPopup } from "../../utils/funcs.js";
-import { getObjs } from "../../utils/objApi.js";
+import { handleBar, showPopup } from "../../utils/funcs";
+import { getObjs } from "../../utils/objApi";
 import { isRejectedWithValue } from '@reduxjs/toolkit'
 
 interface optionState {

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { objSlice } from "./features/objs/objSlice.js";
-import { optionSlice } from "./features/options/optionSlice.js";
+import { objSlice } from "./features/objs/objSlice";
+import { optionSlice } from "./features/options/optionSlice";
 
 export const store = configureStore({
     reducer: {

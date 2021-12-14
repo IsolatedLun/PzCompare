@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { GameObjects } from "../../interfaces/interfaces.js";
-import { handleBar, showPopup } from "../../utils/funcs.js";
-import { getObjs } from "../../utils/objApi.js";
+import { GameObjects } from "../../interfaces/interfaces";
+import { handleBar, showPopup } from "../../utils/funcs";
+import { getObjs } from "../../utils/objApi";
 
 const initialState: GameObjects = {
     "items": [],

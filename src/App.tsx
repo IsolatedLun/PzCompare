@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 
 import Home from './components/Home';
-import Faqs from './components/layout/static/Faqs.js';
-import Footer from './components/layout/static/Footer.js';
-import Navbar from './components/layout/Navbar.js';
-import Updates from './components/layout/static/Updates.js';
+import Faqs from './components/layout/static/Faqs';
+import Footer from './components/layout/static/Footer';
+import Navbar from './components/layout/Navbar';
+import Updates from './components/layout/static/Updates';
 
 function App() {
 
