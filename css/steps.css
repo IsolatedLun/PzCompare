@@ -1,0 +1,26 @@
+.steps {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.steps .step {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-block: 1em;
+}
+
+.steps .step .step-title {
+    font-size: var(--fs-450);
+}
+
+.steps .step .step-img {
+    width: clamp(20em, 42vw, 64em);
+    aspect-ratio: 16 / 9;
+    margin: 1em;
+    border: 2px solid var(--clr-secondary);
+    border-radius: 2px;
+}

@@ -8,5 +8,5 @@
 }
 
 .updates .update .changelog li::marker {
-    color: var(--clr-seconday);
+    color: var(--clr-secondary);
 }

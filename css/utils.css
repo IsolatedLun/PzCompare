@@ -8,6 +8,20 @@
     color: var(--clr-muted);
 }
 
+.link {
+    color: var(--clr-muted);
+    border-bottom: 1px solid var(--clr-secondary);
+}
+
+.link:hover {
+    color: var(--clr-secondary);
+}
+
+/* Margins & Paddings */
+.mi-02 {
+    margin-inline: 0.2em;
+} 
+
 /* Font changes */
 .fs-sm {
     font-size: var(--fs-400) !important;
@@ -45,7 +59,7 @@
     font-weight: bold;
     padding: 0.45em;
     background-color: transparent;
-    border: 2px solid var(--clr-seconday);
+    border: 2px solid var(--clr-secondary);
     color: white;
     cursor: pointer;
     transition: background-color 100ms ease-out;
@@ -57,7 +71,7 @@
 }
 
 .btn:not(:disabled):hover {
-    background-color: var(--clr-seconday);
+    background-color: var(--clr-secondary);
 }
 
 .def-btn {
@@ -138,7 +152,7 @@
 }
 
 .switch .inpt-switch:checked + .slider {
-    background-color: var(--clr-seconday);
+    background-color: var(--clr-secondary);
 }
 
 .switch .inpt-switch:checked + .slider::after {
@@ -152,7 +166,7 @@
     left: 0;
     width: 0px;
     height: 2px;
-    background-color: var(--clr-seconday);
+    background-color: var(--clr-secondary);
     transition: width 8s linear;
 }
 

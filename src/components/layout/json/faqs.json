@@ -2,7 +2,7 @@
 
     {
         "title": "Can I compare modded items?",
-        "ans": "As of now, the way the data is retrieved it is not possible to compare modded items... But in the future I will do something about it :)."
+        "ans": "As of now, the way the data is retrieved it is not possible to compare modded items... But in the future I will do something about it :). (if this website succeeds)"
     },
 
     {
@@ -18,6 +18,11 @@
     {
         "title": "Some items have valid descriptions but they still cause errors, why?",
         "ans": "Because of some inconsistencies between how items are named, you should go to pz wiki search the item(s) your looking for and exactly write down it's name from the link (e.g Mac_and_Cheese instead of Mac and Cheese)"
+    },
+
+    {
+        "title": "Why does it take long to compare items sometimes?",
+        "ans": "It unfortunately may be because I'm using a free version of heroku, if I get enough supporters on patreon I will definetely upgrade the server... I may introduce ads but will make them NOT get in your way and you'll manually be able to disable them."
     }
 
 ]

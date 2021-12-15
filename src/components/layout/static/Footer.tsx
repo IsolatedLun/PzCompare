@@ -12,7 +12,7 @@ const Footer = () => {
                 </ul>
                 <ul className="link-part">
                     <p className="links-title">Coming soon</p>
-                    <li><a href="#" target='_blank'>PzApi</a></li>
+                    <li><a>PzApi</a></li>
                 </ul>
                 <ul className="link-part">
                     <p className="links-title">Misc</p>
@@ -20,7 +20,13 @@ const Footer = () => {
                     <li><Link to={'/updates'}>Updates</Link></li>
                 </ul>
             </div>
-            <address>PzCompare | Copyright &copy; Isolated 2021 </address>
+            
+            <div className="under-footer flex-between">
+                <address>PzCompare | Copyright &copy; Isolated 2021 </address>
+                <a href='https://www.patreon.com/user?u=16045513'
+                target='_blank' data-text='Support me!'
+                className='fab social'>&#xf3d9;</a>
+            </div>
         </footer>
     )
 }
