@@ -11,7 +11,7 @@ const Steps = () => {
                     1) Fill in the 2 fields and press the 
                     <button className='fa btn round mi-02'>&#xf067;</button>button.</p>
                 <div className="step-img">
-                    <img src={tut1} />
+                    <img src={'https://pz-compare.herokuapp.com/static/tut1.d5f8b669.png'} />
                 </div>
             </div>
 
