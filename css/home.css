@@ -82,7 +82,7 @@
     width: 100%;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1124px) {
     /* Main */
     .add-part {
         flex-direction: column;
@@ -94,5 +94,10 @@
 
     .object table > * {
         width: max-content;
+    }
+
+    .object table .td-th-wrap {
+        overflow-wrap: break-word;
+        max-width: 6.5rem;
     }
 }

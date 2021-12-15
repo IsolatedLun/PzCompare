@@ -18,17 +18,11 @@ const Home = () => {
       const data: GameObjects = useAppSelector(state => state.objs);
       const showAll: boolean = useAppSelector(state => state.options.showAll)
 
-      const [canClick, setClick] = useState<boolean>(false)
+      const [canClick, setClick] = useState<boolean>(true)
     
       const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setObjsSearch(prevObjs => ({...prevObjs, [e.target.name]: e.target.value}));
 
-        if(searchObjs.objA.length > 1 && searchObjs.objB.length > 1) {
-          setClick(true);
-        } 
-        
-        else 
-          setClick(false);
       };
     
       const handleBtn = (e: React.MouseEvent) => {

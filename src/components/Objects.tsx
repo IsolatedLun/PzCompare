@@ -15,7 +15,7 @@ const Objects = ({ data, showAll } : {data: GameObjects, showAll: boolean}) => {
                 ?
 
                 data.items.map((item: any, idx: number) => (
-                    <Item obj={item} diff={data.diffs[idx]} 
+                    <Item key={idx} obj={item} diff={data.diffs[idx]} 
                         showAll={showAll} isFilter={showFilter} />
                 )) 
 

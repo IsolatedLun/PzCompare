@@ -11,8 +11,8 @@ const Item = ({ obj, diff, showAll=false, isFilter } :
     const diffPart = (key: string, idx: number) => {
         return (
             <tr className='stat' key={idx}>
-                <th>{key}</th>
-                <td>{stats[key]}</td>
+                <th><div className="td-th-wrap">{key}</div></th>
+                <td><div className="td-th-wrap">{stats[key]}</div></td>
                 <td className='pct' 
                 >{diff[key] ? `+${diff[key]}%` : null}</td>
             </tr>
