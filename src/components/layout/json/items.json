@@ -1,5 +1,5 @@
 ["Hand Axe", "Stone Axe", "Axe", "Wood Axe", "Acoustic Guitar", "Badminton Racket", 
-"Barbell", "Baseball Bat", "Broom", "Canoe Paddle", "Canoe Paddle", 
+"Barbell", "Baseball Bat", "Broom", "Canoe Paddle", 
 "Chainsaw", "Crowbar", "Electric Bass", "Electric Guitar", "Fishing Rod", "Garden Hoe", "Golf Club", 
 "Hockey Stick", "Ice Hockey Stick", "Keytar", "Lacrosse Stick", "Leaf Rake", 
 "Nightstick", "Pickaxe", "Plank", "Pool Cue", "Rake", "Saxophone", "Shovel", 
@@ -7,7 +7,7 @@
 "Trumpet", "Ball-peen Hammer", "Banjo", "Chair Leg", "Club Hammer", "Dumbbell", 
 "Drumstick", "Flute", "Frying Pan", "Griddle Pan", "Hammer", "Lead Pipe", "Metal Bar", 
 "Metal Pipe", "Plunger", "Pipe Wrench", "Pickaxe Handle", "Rolling Pin", "Saucepan", 
-"Spiked Pickaxe Handle", "Stone Hammer", "Table Leg", "Violin", "Wooden Mallet", "Wrench", 
+"Stone Hammer", "Table Leg", "Violin", "Wooden Mallet", "Wrench", 
 "Machete", "Katana", "Butter Knife", "Bread Knife", "Fork", "Hand Fork", "Hand Scythe", 
 "Hunting Knife", "Ice Pick", "Letter Opener", "Kitchen Knife", "Meat Cleaver", "Scalpel", 
 "Scissors", "Screwdriver", "Smashed Bottle", "Spoon", "Stake", "Stone Knife", "Crafted Spear", "Garden Fork", "Spear_with_Bread_Knife", 
@@ -17,8 +17,9 @@
 "Spear_with_Scissors", "Spear_with_Screwdriver", "Spear_with_Spoon", "D-E Pistol", 
 "Double Barrel Shotgun", "JS-2000 Shotgun", "M14 Single Shot Assault Rifle", 
 "M16 Assault Rifle", "M1911 Pistol", "M36 Revolver", "M625 Revolver", "M9 Pistol", 
-"Magnum", "MSR700 Rifle", "MSR788 Rifle", "Sawed-off Double Barrel Shotgun", 
+"Magnum", "MSR700 Rifle", "MSR788 Rifle", "Canned Sardines", 
 "Sawed-off JS-2000 Shotgun", "Choke Tube Improved", "Choke Tube Full", "Fiberglass Stock", 
 "Iron Sight", "Laser", "Recoil Pad", "Red Dot", "Sling", "x2 Scope", "x4 Scope", 
 "x8 Scope", "Aerosol Bomb", "Fire Bomb", "Molotov Cocktail", "Noise Maker", "Pipe Bomb",
-"Smoke Bomb","Pen","Pencil", "Unarmed_combat"]
+"Smoke Bomb","Pen","Pencil", "Unarmed_combat", "Cereal", "Can_of_Oats", "Canned Tuna",
+"Canned Soup", "Canned Tomato", "Bowl_of_Ramen_Noodles"]

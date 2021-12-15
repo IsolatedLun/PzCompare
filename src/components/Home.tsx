@@ -21,9 +21,9 @@ const Home = () => {
       const [canClick, setClick] = useState<boolean>(false)
     
       const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setObjsSearch({...searchObjs, [e.target.name]: e.target.value});
-    
-        if(searchObjs.objA.length > 0 && searchObjs.objB.length > 0) {
+        setObjsSearch(prevObjs => ({...prevObjs, [e.target.name]: e.target.value}));
+
+        if(searchObjs.objA.length > 1 && searchObjs.objB.length > 1) {
           setClick(true);
         } 
         
@@ -47,7 +47,8 @@ const Home = () => {
 
         <div className="add-part">
             <input type="text" id='obj-inpt-1' name='objA' list='obj-list'
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)} />
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)} 
+            value={searchObjs.objA} />
 
             <button className="fa btn add-btn round" 
             aria-label="Add Object" disabled={canClick ? false : true} onClick={(e: React.MouseEvent) => handleBtn(e)} 
@@ -56,7 +57,8 @@ const Home = () => {
             </button>
 
             <input type="text" id='obj-inpt-2' name='objB' list='obj-list'
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)} />
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)} 
+            value={searchObjs.objB} />
 
             <datalist id='obj-list'>
               {

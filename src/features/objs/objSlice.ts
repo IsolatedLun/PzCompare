@@ -49,7 +49,10 @@ export const objSlice = createSlice({
 
         builder.addCase(fetchObjs.rejected, (state, action: any) => {
             handleBar(true);
-            showPopup(action.payload);
+            const err: string = action.payload !== undefined
+                ? action.payload  : 'Something went wrong'
+
+            showPopup(err);
             
             state['status'] = 'rejected';
         })
