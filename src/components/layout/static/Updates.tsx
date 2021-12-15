@@ -1,3 +1,4 @@
+import updates from '../json/updates.json';
 
 const Updates = () => {
     return (
@@ -5,18 +6,26 @@ const Updates = () => {
 
             <div className="list updates">
 
-                <div className="el update">
+                {
 
-                    <div className="update-header flex-between align-end">
-                        <h2 className="update-title">Bugfixes</h2>
-                        <p className="date">2021-12-11</p>
-                    </div>
+                    updates.slice(0).reverse().map((update, idx: number) => (
+                        <div key={idx} className="el update">
+                            <div className="update-header flex-between align-end">
+                                <h2 className="update-title">{update.title}</h2>
+                                <p className="date">{update.date}</p>
+                            </div>
 
-                    <ul className="changelog">
-                        <li>Fixed error handling.</li>
-                    </ul>
+                            <ul className="changelog">
+                                {
+                                    update.changes.map((change: string) => (
+                                        <li>{change}</li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    ))
 
-                </div>
+                }
 
             </div>
 

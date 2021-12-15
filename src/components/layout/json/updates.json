@@ -1,0 +1,14 @@
+[
+
+    {
+        "title": "Deployment (Hotfixes)",
+        "changes": [
+            "Fixed app breaking input bug.",
+            "Added steps part in homepage.",
+            "Added patreon link below footer.",
+            "Made tables responsive."
+        ],
+        "date": "2021-12-15"
+    }
+
+]
