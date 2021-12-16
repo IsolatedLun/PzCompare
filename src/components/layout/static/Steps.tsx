@@ -16,7 +16,7 @@ const Steps = () => {
 
             <div className="step">
                 <p className="step-title">
-                2) If any errors popup be sure to refer to <Link to={'/faqs'} className='upper link'>Faq</Link> section.
+                2) If any errors popup be sure to refer to the <Link to={'/faqs'} className='upper link'>Faq</Link> section.
                 </p>
             </div>
 

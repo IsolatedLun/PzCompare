@@ -18,6 +18,7 @@ const Footer = () => {
                     <p className="links-title">Misc</p>
                     <li><Link className='upper' to={'/faqs'}>Faq</Link></li>
                     <li><Link to={'/updates'}>Updates</Link></li>
+                    <li><a href="mailto:isolunaj3@gmail.com">Contact me</a></li>
                 </ul>
             </div>
             

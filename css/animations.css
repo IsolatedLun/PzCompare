@@ -1,0 +1,9 @@
+@keyframes jump {
+    from {
+        transform: translateY(-5px);
+    }
+
+    tp {
+        transform: translateY(5px);
+    }
+}
