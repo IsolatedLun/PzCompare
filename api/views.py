@@ -10,6 +10,8 @@ from .funcs import get_diffs, get_objs
 
 ERR = status.HTTP_400_BAD_REQUEST
 OK = status.HTTP_200_OK
+cons = ['Weight', 'SwingTime', 'SoundRadius', 'JamGunChance', 'ReloadTime',
+]
 
 class CompareObjs(APIView):
     def get(self, req, obj_1, obj_2):
@@ -20,7 +22,7 @@ class CompareObjs(APIView):
             return Response({'detail': objs}, ERR)
 
         if objs[0]['obj'] is not None and objs[1]['obj'] is not None:
-            diffs = get_diffs(objs[0], objs[1], '__all__')
+            diffs = get_diffs(objs[0], objs[1], '__all__', cons)
             return Response({0: objs[0], 1: objs[1], 'diffs': diffs}, OK)
         else:
             return Response({'detail': 'Something went wrong'}, ERR)

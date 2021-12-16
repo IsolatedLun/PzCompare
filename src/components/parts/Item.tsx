@@ -9,12 +9,15 @@ const Item = ({ obj, diff, showAll=false, isFilter } :
     let filters = useAppSelector(state => state.options.filters);
 
     const diffPart = (key: string, idx: number) => {
+        let isCon = diff[key] < 0 ? true : false;
+        let pct = isCon ? diff[key] + '%' : '+' + diff[key] + '%';
+
         return (
             <tr className='stat' key={idx}>
                 <th><div className="td-th-wrap">{key}</div></th>
                 <td><div className="td-th-wrap">{stats[key]}</div></td>
-                <td className='pct' 
-                >{diff[key] ? `+${diff[key]}%` : null}</td>
+                <td className={`pct ${isCon ? 'con': null}`}
+                >{diff[key] ? pct : null}</td>
             </tr>
         )
     }

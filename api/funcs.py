@@ -132,7 +132,7 @@ def calc_diff(x, y):
     return round((abs(x - y) / ((x + y) / 2)) * 100, 1)
 
 
-def compare_diff(x: dict, y: dict):
+def compare_diff(x: dict, y: dict, cons: list):
     """
     Compares the 'val' key in 2 dictionaries and returns the higher dictionary.
     [{'name': 'Axe', 'stat': 'MaxDamage','val': 2}, 
@@ -155,11 +155,11 @@ def compare_diff(x: dict, y: dict):
         return None
 
     if val_x > val_y:
-        return {'stat': x['stat'], 'name': x['name'],'pct': pct}
-    return {'stat': y['stat'], 'name': y['name'],'pct': pct}
+        return {'stat': x['stat'], 'name': x['name'],'pct': pct, 'con': True if x['stat'] in cons else False}
+    return {'stat': y['stat'], 'name': y['name'],'pct': pct, 'con': True if y['stat'] in cons else False}
 
 
-def get_diffs(a, b, stats):
+def get_diffs(a, b, stats, cons: list):
     """
     For loop version of get_diff().
     """
@@ -174,13 +174,14 @@ def get_diffs(a, b, stats):
 
             stat = compare_diff(
             {'name': a['obj']['DisplayName'], 'stat': var, 'val': a['obj'][var]},
-            {'name': b['obj']['DisplayName'], 'stat': var, 'val': b['obj'][var]})
+            {'name': b['obj']['DisplayName'], 'stat': var, 'val': b['obj'][var]},
+            cons)
 
             if stat: # separates the diffs.
                 if stat['name'] == a['obj']['DisplayName']:
-                   diff_a[stat['stat']] = stat['pct'] 
+                   diff_a[stat['stat']] = -stat['pct'] if stat['con'] else stat['pct']
                 else:
-                    diff_b[stat['stat']] = stat['pct']
+                    diff_b[stat['stat']] = -stat['pct'] if stat['con'] else stat['pct']
 
     return {'0': diff_a, '1': diff_b}
 

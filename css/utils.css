@@ -91,6 +91,11 @@
 .pct {
     padding: 0.25em;
     text-align: center;
+    background-color: var(--pct-con-primary);
+    color: var(--pct-con-secondary)
+}
+
+.pct:not(.con) {
     background-color: var(--pct-primary);
     color: var(--pct-secondary)
 }

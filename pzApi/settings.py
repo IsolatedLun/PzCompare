@@ -32,7 +32,7 @@ INSTALLED_APPS = [
 ]
 
 # Custom Changes
-ALLOWED_HOSTS = ['pz-compare.herokuapp.com']
+ALLOWED_HOSTS = ['pz-compare.herokuapp.com', 'localhost:3000']
 
 WHITENOISE_MIMETYPES = {
     '.js': 'application/javascript',
