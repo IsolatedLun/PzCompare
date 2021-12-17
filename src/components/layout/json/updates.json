@@ -9,6 +9,24 @@
             "Made tables responsive."
         ],
         "date": "2021-12-15"
+    },
+
+    {
+        "title": "Update v1.0",
+        "changes": [
+            "Made negative modifiers be in red.",
+            "Improved responsivness."
+        ],
+        "date": "2021-12-16"
+    },
+
+    {
+        "title": "Update v1.1",
+        "changes": [
+            "Added random popups.",
+            "Made popups more flexible."
+        ],
+        "date": "2021-12-17"
     }
 
 ]

@@ -91,13 +91,13 @@
 .pct {
     padding: 0.25em;
     text-align: center;
-    background-color: var(--pct-con-primary);
-    color: var(--pct-con-secondary)
+    background-color: hsla(var(--pct-con), 0.16);
+    color: hsl(var(--pct-con));
 }
 
 .pct:not(.con) {
-    background-color: var(--pct-primary);
-    color: var(--pct-secondary)
+    background-color: hsla(var(--pct), 0.16);
+    color: hsl(var(--pct));
 }
 
 .pct:empty {
@@ -106,19 +106,32 @@
 
 /* Popup */
 .popup {
+    --clr: 0, 0, 0;
     position: fixed;
     place-self: center;
     bottom: 2%;
     padding: 0.2em 0.4em;
-    border: 1px solid var(--err-primary);
+    background-color: hsla(var(--clr), 0.16);
+    border: 1px solid hsl(var(--clr));
     border-radius: 4px;
-    background-color: var(--err-secondary);
     transform: scale(0);
     transition: transform 250ms ease-out;
 }
 
+.popup .popup-text {
+    font-weight: 500;
+}
+
 .popup.active {
     transform: scale(1);
+}
+
+.popup.err {
+    --clr: var(--err);
+}
+
+.popup.info {
+    --clr: 212, 88%, 46%;
 }
 
 /* Switches */

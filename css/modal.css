@@ -37,12 +37,13 @@
 
 .modal .filters .filter {
     font-size: calc(var(--fs-400) * 0.8);
-    padding: 0.25em 0.35em;
-    background-color: var(--pct-primary);
-    color: var(--pct-secondary);
-    border: 1px solid var(--pct-primary);
+    padding: 0.35em 0.45em;
+    background-color: hsl(var(--pct), 0.16);
+    color: hsl(var(--pct));
+    border: 1px solid hsl(var(--pct));
     cursor: pointer;
     user-select: none;
+    transition: border 90ms ease-out;
 }
 
 .modal .filters .filter:hover {

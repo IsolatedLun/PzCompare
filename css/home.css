@@ -69,6 +69,11 @@
     word-wrap: break-word;
 }
 
+.object table .td-th-wrap {
+    overflow-wrap: break-word;
+    max-width: 24rem;
+}
+
 .object .stats {
     margin-block: 0.35rem;
 }

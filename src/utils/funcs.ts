@@ -11,11 +11,12 @@ export const handleBar = (close: boolean=false) => {
         bar.style.display = 'block';
 }
 
-export const showPopup = (text: string) => {
+export const showPopup = (text: string, _type: 'info' | 'err') => {
     const popup: HTMLElement = document.getElementById('popup')!;
     const popupTxt = popup.childNodes[0] as HTMLParagraphElement;
 
     popupTxt.textContent = text;
+    popup.className = 'popup ' + _type;
     
     if(!popup.classList.contains('active')) {
         popup.classList.add('active');
@@ -23,6 +24,14 @@ export const showPopup = (text: string) => {
         setTimeout(() => {
             popup.classList.remove('active')
         }, 2500);
+    }
+}
+
+export const genPopup = (strs: string[], rarity: number) => {
+    let num: number = genNum(strs.length * rarity);
+
+    if (num < strs.length) {
+        showPopup(strs[num], 'info');
     }
 }
 
@@ -41,4 +50,8 @@ export const parseName = (text: string): string => {
     })
 
     return arr.join('_');
+}
+
+export const genNum = (max: number): number => {
+    return Math.floor(Math.random() * max);
 }

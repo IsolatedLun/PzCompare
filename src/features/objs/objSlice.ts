@@ -52,7 +52,7 @@ export const objSlice = createSlice({
             const err: string = action.payload !== undefined
                 ? action.payload  : 'Something went wrong'
 
-            showPopup(err);
+            showPopup(err, 'err');
             
             state['status'] = 'rejected';
         })

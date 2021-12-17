@@ -6,10 +6,14 @@ const STATS: string[] = ['MaxRange', 'MaxDamage', 'WeaponLength', 'DoorDamage',
 'AimingTime','MaxAmmo', 'SoundRadius', 'RecoilDelay', 'ProjectileCount', 'Calories'];
 const DEBUG = false;
 
-if(!DEBUG) 
+if(!DEBUG) {
     BACKEND_URL = 'https://pz-compare.herokuapp.com/';
-else 
+}
+    
+else {
     BACKEND_URL = 'http://localhost:8000/';
+    document.title += ' | DEBUG'
+}
 
 
 
