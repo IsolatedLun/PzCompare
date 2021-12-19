@@ -1,27 +1,30 @@
 from bs4 import BeautifulSoup
 
 
-def set_doubles(dict: dict, *pair: list):
+def parse_file(path: str):
     """
-    Combines 2 key/value pairs into 1 pair.
+    Reads the script files and passes it to parse_data().
     """
 
-    for x in pair:
-        try:
-            dict[f'{x[0]}/{x[1]}'] = f'{dict[x[0]]}/{dict[x[1]]}'
-            dict.pop(x[0]) ; dict.pop(x[1])
-        except KeyError as e:
-            return None
+    res = []
 
-    return dict
+    with open(path, 'r') as f:
+        text = f.read().split('item ')
+        for x in text:
+            data = parse_data(x);
+            if data.get('DisplayName'):
+                res.append({'obj': data})
+                
+    return res
 
 
 def create_dict(s: str):
     """
     Creates a valid dictionary from the string dictionary returned from parse_data().
     """
+
     parsed = s.split(',')
-	
+
     stats = {}
     for x in parsed:
         try:
@@ -42,28 +45,30 @@ def parse_data(s: str):
 
     parsed = s.replace(' ', '').replace('=', ':').replace('\n', '').replace('\t', '')
     
-    if parsed[0] == '{':
-        parsed = parsed[1::]
+    for idx, char in enumerate(parsed):
+        if char == '{':
+            parsed = parsed[idx+1::]
+            break;
 
     return create_dict(parsed)
 
 
-def get_info(html: str, obj_len: int):
+def get_objs(objs: list):
     """
-    Gets the data of an object.
+     Retrieves the objects from the db.
     """
+    from . import models
 
-    from bs4 import BeautifulSoup
+    res = []
 
-    soup = BeautifulSoup(html, 'html.parser')
-    stats = soup.find('pre')
-    urls = get_urls(soup)
+    try:
+        for obj in objs:
+           res.append(models.Obj.objects.get(name=obj).data)
+    except:
+        return f"Object '{obj}' doesn\' exist."
+    return res
 
-    if stats is not None:
-        return stats.get_text(strip=True)[5+obj_len:], urls
-    return None, None
-
-
+# Gets the image urls of the obj for the frontend.
 def get_urls(soup: BeautifulSoup):
     """
     Tries to extract the image urls of an object.
@@ -71,58 +76,17 @@ def get_urls(soup: BeautifulSoup):
 
     tables = soup.find_all('table', {'class': 'infobox'}, limit=1)
     
-    try:
-        for table in tables:
-            if len(table) > 0:
-                tbody = table.findChild('tbody')
-                main_img = tbody.find_next('tr').find_next('tr').findChild('a')['href']
-                icon = tbody.find_next('tr').find_next('tr').find_next('tr').findChild('img')['src']
-                
-                return {'main': main_img, 'icon': icon}
-    except:
-        return None
+    for table in tables:
+        if len(table) > 0:
+            tbody = table.findChild('tbody')
+            main_img = tbody.find_next('tr').find_next('tr').findChild('a')['href']
+            icon = tbody.find_next('tr').find_next('tr').find_next('tr').findChild('img')['src']
+            
+            return {'main': main_img, 'icon': icon}
 
+    return None
 
-def get_obj(obj_name: str):
-    """
-    Wrapper function to get an object.
-    """
-
-    import requests
-
-    URL = 'https://pzwiki.net/wiki/'
-    try:
-        req = requests.get(URL + obj_name)
-
-        if(req.status_code == 200):
-            obj_info, urls = get_info(req.text, len(obj_name))
-            return {'obj': parse_data(obj_info), 'images':  urls}, None
-        elif(req.status_code > 404):
-            raise ConnectionError
-        raise Exception
-
-    except ConnectionError:
-        return None, 'Connection error ' + f'[{req.status_code}]'
-    except Exception:
-        return None, f"Object '{obj_name}' does not exist."
-
-
-def get_objs(obj_names: list):
-    """
-    For loop compatible version of get_obj.
-    """
-
-    res = []
-
-    for name in obj_names:
-        obj, err = get_obj(name)
-        if err is None:
-            res.append(obj)
-        else:
-            return err
-    return res
-
-
+#===========================
 def calc_diff(x, y):
     """
     Calculates the percentage difference between 2 values.
@@ -185,10 +149,26 @@ def get_diffs(a, b, stats, cons: list):
 
     return {'0': diff_a, '1': diff_b}
 
-
+# Utils
 def is_num(x: str, typeof=float):
     try:
         typeof(x)
         return True
     except:
         return False
+
+# Updates all of the objects in the db.
+def update_objs(path: str):
+    import os
+    from . import models
+    import json
+
+    module_dir = os.path.dirname(__file__)
+    file_path = os.path.join(module_dir, path)
+
+    with open(file_path, 'r') as f:
+        text = json.loads(f.read())
+        for x in text:
+            models.Obj.objects.update_or_create(name=x['obj']['DisplayName'], defaults={
+                'data': x
+            })
